@@ -25,19 +25,23 @@ and open the template in the editor.
                     for (var col = 0; col < cols; col ++ ) {
                         var class_t = "";
                         var content = "";
-                        var id = row+""+col;
+                        var id = "k"+row+""+col;
                         if ((row+col) % 2 == 1) {
                             class_t = 'dark';
                             if (row <= 2) {content = 'v';}
                             if (row >= 5) {content = 'm';}
                         }
-                        v+="<td class = '"+class_t+"' onclick='click(this)' id='"+id+"'>"+content+"</td>";
+                        v+="<td class = '"+class_t+"' onclick='click_box(this);' id='"+id+"'>"+content+"</td>";
                     }
                     v+="</tr>";
                 }
                 
                 v += "</table>"
                 document.getElementById("boardlayer").innerHTML=v;
+            }
+            
+            function click_box (box) {
+                alert (box.className + " " + box.id);
             }
         </script>
     </head>

@@ -1,0 +1,46 @@
+<html><head>
+        <title>Checkers</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            .dark       {background-color: gray;}
+            #table1     {border: solid 1px black; border-collapse: collapse;}
+            #table1 td  {width: 25px; height: 25px;}
+        </style>
+        <script>
+            const rows = 8;
+            const cols = 8;
+            function createBoard() {
+                var v = "<table id = 'table1'>";
+                
+                for (var row = 0; row < rows; row ++) {
+                    v+="<tr>";
+                    for (var col = 0; col < cols; col ++ ) {
+                        var class_t = "";
+                        var content = "";
+                        var id = "k"+row+""+col;
+                        if ((row+col) % 2 == 1) {
+                            class_t = 'dark';
+                            if (row <= 2) {content = 'v';}
+                            if (row >= 5) {content = 'm';}
+                        }
+                        v+="<td class = '"+class_t+"' onclick='click_box(this);' id='"+id+"'>"+content+"</td>";
+                    }
+                    v+="</tr>";
+                }
+                
+                v += "</table>"
+                document.getElementById("boardlayer").innerHTML=v;
+            }
+            
+            function click_box (box) {
+                alert (box.className + " " + box.id);
+            }
+        </script>
+    </head>
+    <body onload="createBoard();">
+        <h1>Checkers</h1>
+        <div id="boardlayer"><table id="table1"><tbody><tr><td class="" onclick="click_box(this);" id="k00"></td><td class="dark" onclick="click_box(this);" id="k01">v</td><td class="" onclick="click_box(this);" id="k02"></td><td class="dark" onclick="click_box(this);" id="k03">v</td><td class="" onclick="click_box(this);" id="k04"></td><td class="dark" onclick="click_box(this);" id="k05">v</td><td class="" onclick="click_box(this);" id="k06"></td><td class="dark" onclick="click_box(this);" id="k07">v</td></tr><tr><td class="dark" onclick="click_box(this);" id="k10">v</td><td class="" onclick="click_box(this);" id="k11"></td><td class="dark" onclick="click_box(this);" id="k12">v</td><td class="" onclick="click_box(this);" id="k13"></td><td class="dark" onclick="click_box(this);" id="k14">v</td><td class="" onclick="click_box(this);" id="k15"></td><td class="dark" onclick="click_box(this);" id="k16">v</td><td class="" onclick="click_box(this);" id="k17"></td></tr><tr><td class="" onclick="click_box(this);" id="k20"></td><td class="dark" onclick="click_box(this);" id="k21">v</td><td class="" onclick="click_box(this);" id="k22"></td><td class="dark" onclick="click_box(this);" id="k23">v</td><td class="" onclick="click_box(this);" id="k24"></td><td class="dark" onclick="click_box(this);" id="k25">v</td><td class="" onclick="click_box(this);" id="k26"></td><td class="dark" onclick="click_box(this);" id="k27">v</td></tr><tr><td class="dark" onclick="click_box(this);" id="k30"></td><td class="" onclick="click_box(this);" id="k31"></td><td class="dark" onclick="click_box(this);" id="k32"></td><td class="" onclick="click_box(this);" id="k33"></td><td class="dark" onclick="click_box(this);" id="k34"></td><td class="" onclick="click_box(this);" id="k35"></td><td class="dark" onclick="click_box(this);" id="k36"></td><td class="" onclick="click_box(this);" id="k37"></td></tr><tr><td class="" onclick="click_box(this);" id="k40"></td><td class="dark" onclick="click_box(this);" id="k41"></td><td class="" onclick="click_box(this);" id="k42"></td><td class="dark" onclick="click_box(this);" id="k43"></td><td class="" onclick="click_box(this);" id="k44"></td><td class="dark" onclick="click_box(this);" id="k45"></td><td class="" onclick="click_box(this);" id="k46"></td><td class="dark" onclick="click_box(this);" id="k47"></td></tr><tr><td class="dark" onclick="click_box(this);" id="k50">m</td><td class="" onclick="click_box(this);" id="k51"></td><td class="dark" onclick="click_box(this);" id="k52">m</td><td class="" onclick="click_box(this);" id="k53"></td><td class="dark" onclick="click_box(this);" id="k54">m</td><td class="" onclick="click_box(this);" id="k55"></td><td class="dark" onclick="click_box(this);" id="k56">m</td><td class="" onclick="click_box(this);" id="k57"></td></tr><tr><td class="" onclick="click_box(this);" id="k60"></td><td class="dark" onclick="click_box(this);" id="k61">m</td><td class="" onclick="click_box(this);" id="k62"></td><td class="dark" onclick="click_box(this);" id="k63">m</td><td class="" onclick="click_box(this);" id="k64"></td><td class="dark" onclick="click_box(this);" id="k65">m</td><td class="" onclick="click_box(this);" id="k66"></td><td class="dark" onclick="click_box(this);" id="k67">m</td></tr><tr><td class="dark" onclick="click_box(this);" id="k70">m</td><td class="" onclick="click_box(this);" id="k71"></td><td class="dark" onclick="click_box(this);" id="k72">m</td><td class="" onclick="click_box(this);" id="k73"></td><td class="dark" onclick="click_box(this);" id="k74">m</td><td class="" onclick="click_box(this);" id="k75"></td><td class="dark" onclick="click_box(this);" id="k76">m</td><td class="" onclick="click_box(this);" id="k77"></td></tr></tbody></table></div>
+    
+
+</body></html>

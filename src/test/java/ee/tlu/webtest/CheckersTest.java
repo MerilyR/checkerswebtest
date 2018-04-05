@@ -32,9 +32,12 @@ public class CheckersTest {
         $("#table1").$$("tr").get(7).
                         $$("td").get(0).shouldHave(text("m"));
         $("#table1").$$("tr").get(2).
-                        $$("td").get(0).shouldHave(text("v"));
-        $("#table1").$$("tr").get(2).
+                        $$("td").get(1).shouldHave(text("v"));
+        $("#table1").$$("tr").get(3).
                         $$("td").get(0).shouldHave(text(""));
+        assertEquals ("k01", $("#table1").$$("tr").get(0).
+                        $$("td").get(1).getAttribute("id"));
         
     }
+
 }
