@@ -40,8 +40,18 @@ and open the template in the editor.
                 document.getElementById("boardlayer").innerHTML=v;
             }
             
+            
+            var selected_id = "";
             function click_box (box) {
-                alert (box.className + " " + box.id);
+                if (selected_id == "") {
+                    selected_id = box.id;                        
+                }
+                else {
+                    box.innerHTML = document.getElementById(selected_id).innerHTML;
+                    document.getElementById(selected_id).innerHTML = "";
+                    selected_id = "";
+                }
+                
             }
         </script>
     </head>

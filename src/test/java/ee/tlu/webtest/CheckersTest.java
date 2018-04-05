@@ -22,8 +22,9 @@ public class CheckersTest {
 
     @Test
     public void opening() {
-        open ("http://web.zone.ee/merxgirl/tlu/checkers.html");
-        //open ("C:\\Users\\merily.rooparg\\Documents\\NetBeansProjects\\webtest\\src\\main\\resources\\checkers.html");
+        //open ("http://web.zone.ee/merxgirl/tlu/checkers.html");
+        open ("file:///../../../../main/resources/checkers.html");
+        //open ("file:///C:/Users/merily.rooparg/Documents/NetBeansProjects/webtest/src/main/resources/checkers.html");
         $("h1").shouldHave(text("Checkers"));
         assertEquals("dark", $("#table1").$$("tr").get(0).
                         $$("td").get(1).getAttribute("class"));
@@ -39,5 +40,17 @@ public class CheckersTest {
                         $$("td").get(1).getAttribute("id"));
         
     }
-
+    
+    @Test
+    public void movement() {
+        open ("http://web.zone.ee/merxgirl/tlu/checkers.html");
+        $("#table1").$$("tr").get(5).
+                        $$("td").get(0).shouldHave(text("m"));
+        $("#table1").$$("tr").get(4).
+                        $$("td").get(1).shouldHave(text(""));
+        $("#k50").click();
+        $("#k41").click();
+        $("#k50").shouldHave(text(""));
+        $("#k41").shouldHave(text("m"));
+    }
 }
