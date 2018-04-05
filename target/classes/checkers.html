@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Checkers</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style type="text/css">
+            .dark       {background-color: gray;}
+            #table1     {border: solid 1px black; border-collapse: collapse;}
+            #table1 td  {width: 25px; height: 25px;}
+        </style>
+        <script>
+            const rows = 8;
+            const cols = 8;
+            function createBoard() {
+                var v = "<table id = 'table1'>";
+                
+                for (var row = 0; row < rows; row ++) {
+                    v+="<tr>";
+                    for (var col = 0; col < cols; col ++ ) {
+                        var class_t = "";
+                        var content = "";
+                        var id = row+""+col;
+                        if ((row+col) % 2 == 1) {
+                            class_t = 'dark';
+                            if (row <= 2) {content = 'v';}
+                            if (row >= 5) {content = 'm';}
+                        }
+                        v+="<td class = '"+class_t+"' onclick='click(this)' id='"+id+"'>"+content+"</td>";
+                    }
+                    v+="</tr>";
+                }
+                
+                v += "</table>"
+                document.getElementById("boardlayer").innerHTML=v;
+            }
+        </script>
+    </head>
+    <body onLoad="createBoard();">
+        <h1>Checkers</h1>
+        <div id ="boardlayer">
+            
+            
+        </div>
+    </body>
+</html>
