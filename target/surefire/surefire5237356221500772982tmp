@@ -1,5 +1,5 @@
 #surefire
-#Thu Apr 05 10:49:07 EEST 2018
+#Thu Apr 05 11:15:53 EEST 2018
 enableAssertions=true
 testSuiteDefinitionTestSourceDirectory=C\:\\Users\\merily.rooparg\\Documents\\NetBeansProjects\\webtest\\src\\test\\java
 requestedTest=ee.tlu.webtest.CheckersTest

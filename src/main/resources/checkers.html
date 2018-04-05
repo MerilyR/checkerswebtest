@@ -47,12 +47,37 @@ and open the template in the editor.
                     selected_id = box.id;                        
                 }
                 else {
-                    box.innerHTML = document.getElementById(selected_id).innerHTML;
-                    document.getElementById(selected_id).innerHTML = "";
-                    selected_id = "";
+                    
+                    if (allowed (selected_id, box.id) && (box.innerHTML == "" || box.innerHTML == "!")) {                    
+                        box.innerHTML = document.getElementById(selected_id).innerHTML.substring (0, 1);
+                        document.getElementById(selected_id).innerHTML = "";
+                        selected_id = "";
+                    }
+                    
+                    else {
+                        box.innerHTML += '!';
+                        selected_id = "";
+                    }
                 }
                 
             }
+            
+            function allowed (id1, id2) {
+                console.log ("id1="+id1+";id2="+id2);
+                var id1_int = parseInt(id1.substring(1, 3));
+                console.log ("id1_int = "+id1_int);
+                var id2_int = parseInt(id2.substring(1, 3));
+                console.log ("id2_int = "+id2_int);
+                if (Math.abs(id1_int - id2_int) == 9 ||
+                    Math.abs(id1_int - id2_int) == 11 ) {
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            
+            
         </script>
     </head>
     <body onLoad="createBoard();">

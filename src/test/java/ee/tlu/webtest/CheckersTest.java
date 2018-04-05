@@ -22,8 +22,8 @@ public class CheckersTest {
 
     @Test
     public void opening() {
-        //open ("http://web.zone.ee/merxgirl/tlu/checkers.html");
-        open ("file:///../../../../main/resources/checkers.html");
+        open ("http://web.zone.ee/merxgirl/tlu/checkers.html");
+        //open ("file:///../../../../main/resources/checkers.html");
         //open ("file:///C:/Users/merily.rooparg/Documents/NetBeansProjects/webtest/src/main/resources/checkers.html");
         $("h1").shouldHave(text("Checkers"));
         assertEquals("dark", $("#table1").$$("tr").get(0).
@@ -52,5 +52,23 @@ public class CheckersTest {
         $("#k41").click();
         $("#k50").shouldHave(text(""));
         $("#k41").shouldHave(text("m"));
+        
+        // move diagonally
+        $("#k52").shouldHave(text("m"));
+        $("#k43").shouldHave(text(""));
+        $("#k52").click();
+        $("#k43").click();
+        $("#k52").shouldHave(text(""));
+        $("#k43").shouldHave(text("m"));
+        
+        
+        //try to move illeagelly
+        $("#k54").shouldHave(text("m"));
+        $("#k55").shouldHave(text(""));
+        $("#k54").click();
+        $("#k55").click();
+        $("#k54").shouldHave(text("m"));
+        $("#k55").shouldHave(text("!"));
     }
+
 }
